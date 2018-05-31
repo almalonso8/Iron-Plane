@@ -23,12 +23,14 @@ Plane.prototype.draw = function(){
         this.y,
         this.w,
         this.h
-
       );
 }
 
-Plane.prototype.move = function(){
-    this.x += this.vx;
-    this.y += this.vy - this.g;
-      
+Plane.prototype.gravity = function(){
+    this.y += this.g;
+}
+Plane.prototype.fly = function(){
+    document.getElementsByClassName("button").onclick = function(){
+    this.y -= this.y
+    }
 }

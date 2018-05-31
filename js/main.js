@@ -7,4 +7,5 @@ window.onload = function(){
     document.body.prepend(canvas);
 
     new Game(canvas).start();
+    new Game(canvas).clear();
 };
