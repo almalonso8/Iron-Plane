@@ -18,6 +18,7 @@ Game.prototype.drawAll = function(){
 
     Game.prototype.moveAll = function(){
         this.back.move();
+        this.plane.move();
     }
 };
 
