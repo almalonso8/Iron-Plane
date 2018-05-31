@@ -1,4 +1,21 @@
+html {
+  background-color: #d7192d;
+}
 canvas {
-    border: 3px solid #d7192d;
+    border: 3px solid white;
+  }
+
+  .container {
+    display: flex;
+  }
+  button {
+    margin-left: 30%;
+    margin-top: 5px;
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    background-color: white ;
+    color: #d7192d;
+    border-radius: 5%;
   }
   

@@ -8,10 +8,10 @@ function Plane(ctx){
     this.w = 200;
     this.h = 80;  
 
-    this.vx = 5;
-    this.vy = 1.5;
+    this.vx = 20;
+    this.vy = 20;
 
-    this.g = 0.8;
+    this.g = 1;
     
     
 }
@@ -29,8 +29,13 @@ Plane.prototype.draw = function(){
 Plane.prototype.gravity = function(){
     this.y += this.g;
 }
+
+
+
 Plane.prototype.fly = function(){
-    document.getElementsByClassName("button").onclick = function(){
-    this.y -= this.y
-    }
+    var element = document.getElementById("flyId")
+    element.onclick = function() {
+        this.y -= this.vy;
+        this.x += this.vx;
+    }.bind(this)
 }
