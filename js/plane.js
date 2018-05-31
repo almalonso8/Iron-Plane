@@ -5,8 +5,8 @@ function Plane(ctx){
   
     this.x = 100;
     this.y = 200;
-    this.w = 200;
-    this.h = 80;  
+    this.w = 250;
+    this.h = 100;  
 
     this.vx = 20;
     this.vy = 20;

@@ -5,8 +5,8 @@ function Cloud(ctx){
 
     this.x = 300;
     this.y = 500;
-    this.w = 100;
-    this.h = 50; 
+    this.w = 200;
+    this.h = 100; 
 }
 
 Cloud.prototype.draw = function(){

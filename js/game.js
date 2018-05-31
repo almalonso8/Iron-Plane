@@ -4,6 +4,7 @@ function Game(canvasElem){
     this.back = new Background(this.ctx);
     this.plane = new Plane(this.ctx);
     this.cloud = new Cloud(this.ctx);
+    this.clock = new Clock(this.ctx);
 }
 
 Game.prototype.start = function(){
@@ -20,6 +21,7 @@ Game.prototype.drawAll = function(){
     this.back.draw();
     this.plane.draw();
     this.cloud.draw();
+    this.clock.draw();
 
 Game.prototype.moveAll = function(){
     this.back.move();
