@@ -4,9 +4,12 @@ function Cloud(ctx){
     this.img.src = "img/cloud.svg"
 
     this.x = 300;
-    this.y = 500;
+    this.y = 100;
     this.w = 200;
-    this.h = 100; 
+    this.h = 100;
+
+    this.vx = 1;
+    this.vy = 1;
 }
 
 Cloud.prototype.draw = function(){
@@ -18,3 +21,12 @@ Cloud.prototype.draw = function(){
         this.h
       );
 }
+
+Cloud.prototype.move = function() {
+    this.x -= this.vx; 
+    this.y += this.vy;
+  };
+
+Cloud.prototype.checkCollision = function () {
+
+  };

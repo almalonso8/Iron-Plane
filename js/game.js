@@ -5,6 +5,7 @@ function Game(canvasElem){
     this.plane = new Plane(this.ctx);
     this.cloud = new Cloud(this.ctx);
     this.clock = new Clock(this.ctx);
+    this.cloudFactory = new CloudFactory(this.ctx);
 }
 
 Game.prototype.start = function(){
@@ -22,15 +23,33 @@ Game.prototype.drawAll = function(){
     this.plane.draw();
     this.cloud.draw();
     this.clock.draw();
+    // this.cloudFactory.draw();
 }
 Game.prototype.moveAll = function(){
     this.back.move();
     this.plane.gravity();
     this.plane.fly();
+    this.cloud.move();
+    // this.cloudFactory.move();
     }
 
-Game.prototype.countdownElem = function(){
-    this.clock.countdown();
-    }
+// Game.prototype.gameOver = function(){
+//     this.clock.gameOver();
+// }
+// console.log(Game.prototype.gameOver());
+
+// Game.prototype.checkGameOver = function() {
+//     if (this.clock.isCollisions(this.player)) {
+//       this.gameOver();
+//     }
+//   };
+  
+//   Game.prototype.gameOver = function() {
+//     clearInterval(this.intervalId);
+    
+//     if (confirm("GAME OVER! Play again?")) {
+//       location.reload();
+//     }
+//   };
 
 
