@@ -29,5 +29,8 @@ Game.prototype.moveAll = function(){
     this.plane.fly();
     }
 
+Game.prototype.countdownElem = function(){
+    this.clock.countdown();
+    }
 
 
