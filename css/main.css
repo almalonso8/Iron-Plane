@@ -1,6 +1,4 @@
-html {
-  background-color: #d7192d;
-}
+
 canvas {
     border: 3px solid white;
   }
@@ -9,13 +7,20 @@ canvas {
     display: flex;
   }
   button {
-    margin-left: 30%;
+    margin-left: 50%;
     margin-top: 5px;
-    width: 500px;
+    width: 50px;
     height: 50px;
     text-align: center;
-    background-color: white ;
-    color: #d7192d;
-    border-radius: 5%;
+    background-color: #d7192d ;
+    color: white;
+    border-radius: 50%;
   }
   
+  button:hover {background-color: #666}
+
+button:active {
+  background-color: rgb(255, 0, 0);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

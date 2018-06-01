@@ -11,7 +11,7 @@ Game.prototype.start = function(){
     this.intervalId = setInterval(function() {
         this.drawAll(); 
         this.moveAll();
-    }.bind(this), 20);
+    }.bind(this), 16/1000);
 };
 
 Game.prototype.clear = function(){
@@ -22,12 +22,12 @@ Game.prototype.drawAll = function(){
     this.plane.draw();
     this.cloud.draw();
     this.clock.draw();
-
+}
 Game.prototype.moveAll = function(){
     this.back.move();
     this.plane.gravity();
     this.plane.fly();
     }
-};
+
 
 
