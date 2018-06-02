@@ -9,8 +9,8 @@ function Cloud(ctx){
     this.w = this.ctx.canvas.width/10;
     this.h = this.ctx.canvas.height/10;
 
-    this.vx = 0.5;
-    this.vy = 0.5;
+    this.vx = 1;
+    this.vy = 0;
 }
 
 Cloud.prototype.draw = function(){
@@ -26,8 +26,4 @@ Cloud.prototype.draw = function(){
 Cloud.prototype.move = function() {
     this.x -= this.vx; 
     this.y += this.vy;
-  };
-
-Cloud.prototype.checkCollision = function () {
-
   };

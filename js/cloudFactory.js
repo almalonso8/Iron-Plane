@@ -19,7 +19,7 @@ function CloudFactory(ctx) {
 
   CloudFactory.prototype.pushCloud = function(){
     var max = 300,
-    min = 50;
+    min = 5;
 
     var random = Math.floor(Math.random() * (max - min + 1) + min);
 
@@ -38,11 +38,10 @@ function CloudFactory(ctx) {
     }); 
   }
 
-  CloudFactory.prototype.checkCollision = function(){
-
-  }
-
   CloudFactory.prototype.clean = function(){
-
+    this.clouds = this.clouds.filter(function(c) {
+      return c.x + c.w > 0;
+    });
+    //console.log(this.clouds.length);
   }
   

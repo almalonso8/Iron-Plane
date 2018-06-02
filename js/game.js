@@ -3,12 +3,13 @@ function Game(canvasElem){
 
     this.back = new Background(this.ctx);
     this.plane = new Plane(this.ctx);
-    this.CloudFactory = new CloudFactory(this.ctx);
+    this.cloudFactory = new CloudFactory(this.ctx);
     this.clock = new Clock(this.ctx);
 }
 
 Game.prototype.start = function(){
     this.intervalId = setInterval(function() {
+        this.clear();
         this.drawAll(); 
         this.moveAll();
         //check game over
@@ -21,15 +22,25 @@ Game.prototype.clear = function(){
 Game.prototype.drawAll = function(){
     this.back.draw();
     this.plane.draw();
-    this.CloudFactory.draw();
+    this.cloudFactory.draw();
     this.clock.draw();
+    this.checkCollision();
 }
+
+Game.prototype.clear = function() {
+    this.cloudFactory.clean();
+}
+
 Game.prototype.moveAll = function(){
     this.back.move();
     this.plane.gravity();
     this.plane.fly();
-    this.CloudFactory.move();
-    }
+    this.cloudFactory.move();
+}
+
+Game.prototype.checkCollision = function(){
+    
+}
 
 // Game.prototype.gameOver = function(){
 //     this.clock.gameOver();
