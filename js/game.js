@@ -15,6 +15,7 @@ Game.prototype.start = function(){
         this.gameOver();
         this.drawAll(); 
         this.moveAll();
+        this.checkCollision();
         this.gameOver();
     }.bind(this), 16/1000);
 };
@@ -28,7 +29,6 @@ Game.prototype.drawAll = function(){
     this.plane.draw();
     this.cloudFactory.draw();
     this.clock.draw();
-    this.checkCollision();
 }
 
 Game.prototype.moveAll = function(){
@@ -41,13 +41,9 @@ Game.prototype.moveAll = function(){
 Game.prototype.checkCollision = function(){
     this.plane.collide(this.cloudFactory.clouds);
     
-     //console.log(this.plane);
-
-    // for(var i = 0; i < clouds.length; i++) {
-    //     if ((this.plane.x + this.plane.w) >= this.cloud){
-    //         console.log("choque")}
-    //     }
-}
+        if ((this.plane.x + this.plane.w) >= this.cloud){
+            console.log("choque")}
+        }
 
 Game.prototype.gameOver = function(){
     if(this.clock.countdown <= 0){

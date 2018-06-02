@@ -8,7 +8,7 @@ function Clock(ctx){
 gradient.addColorStop("0", "black");
 gradient.addColorStop("1.0", "red");
     this.ctx.fillStyle = gradient;
-    this.countdown = 50;
+    this.countdown = 180;
 }
 
 Clock.prototype.draw = function(){

@@ -48,7 +48,6 @@ Plane.prototype.collide = function(clouds) {
     this.vx -= collitions.length * 1;
 }
 
-
 Plane.prototype.fly = function(){
     var element = document.getElementById("flyId")
     element.onclick = function() {
