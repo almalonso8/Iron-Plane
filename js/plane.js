@@ -9,11 +9,19 @@ function Plane(ctx){
     this.h = 100;  
 
     this.vx = 10;
-    this.vy = 50;
+    this.vy = 10;
 
     this.g = 0.8;
     
     
+}
+
+Plane.prototype.animate = function() {
+    this.y -= this.vy;
+    this.x += this.vx;
+
+    this.vx *= 0.9;
+    this.vy *= 0.9;
 }
 
 Plane.prototype.draw = function(){
@@ -24,18 +32,27 @@ Plane.prototype.draw = function(){
         this.w,
         this.h
       );
+
+    this.animate();
 }
 
 Plane.prototype.gravity = function(){
     this.y += this.g;
 }
 
+Plane.prototype.collide = function(clouds) {
+    var collitions = clouds.filter(function(cloud) {
+        return cloud.collide(this);
+    }.bind(this));
+    
+    this.vx -= collitions.length * 1;
+}
 
 
 Plane.prototype.fly = function(){
     var element = document.getElementById("flyId")
     element.onclick = function() {
-        this.y -= this.vy;
-        this.x += this.vx;
+        this.vy = 10;
+        this.vx = 10;
     }.bind(this)
 }
