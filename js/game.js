@@ -3,15 +3,15 @@ function Game(canvasElem){
 
     this.back = new Background(this.ctx);
     this.plane = new Plane(this.ctx);
-    this.cloud = new Cloud(this.ctx);
+    this.CloudFactory = new CloudFactory(this.ctx);
     this.clock = new Clock(this.ctx);
-    this.cloudFactory = new CloudFactory(this.ctx);
 }
 
 Game.prototype.start = function(){
     this.intervalId = setInterval(function() {
         this.drawAll(); 
         this.moveAll();
+        //check game over
     }.bind(this), 16/1000);
 };
 
@@ -21,16 +21,14 @@ Game.prototype.clear = function(){
 Game.prototype.drawAll = function(){
     this.back.draw();
     this.plane.draw();
-    this.cloud.draw();
+    this.CloudFactory.draw();
     this.clock.draw();
-    // this.cloudFactory.draw();
 }
 Game.prototype.moveAll = function(){
     this.back.move();
     this.plane.gravity();
     this.plane.fly();
-    this.cloud.move();
-    // this.cloudFactory.move();
+    this.CloudFactory.move();
     }
 
 // Game.prototype.gameOver = function(){

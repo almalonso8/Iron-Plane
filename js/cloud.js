@@ -3,13 +3,14 @@ function Cloud(ctx){
     this.img = new Image();
     this.img.src = "img/cloud.svg"
 
-    this.x = 300;
-    this.y = 100;
-    this.w = 200;
-    this.h = 100;
+    this.x = Math.floor((Math.random() * 1200) + 1);
+    this.y = Math.floor((Math.random() * 600) + 1);;
 
-    this.vx = 1;
-    this.vy = 1;
+    this.w = this.ctx.canvas.width/10;
+    this.h = this.ctx.canvas.height/10;
+
+    this.vx = 0.5;
+    this.vy = 0.5;
 }
 
 Cloud.prototype.draw = function(){

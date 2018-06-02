@@ -5,42 +5,44 @@ function CloudFactory(ctx) {
   
     this.drawCounter = 0;
   }
-  
-  cloudFactory.prototype.draw = function() {
+
+  CloudFactory.prototype.draw = function(){
     this.drawCounter++;
-    this.drawClouds();
-    this.clouds.forEach(function(cloud) {
-      cloud.draw();
+
+    this.pushCloud();
+
+    this.clouds.forEach(function(c) {
+      c.draw();
     });
-  
-    this.cleanClouds();
-  };
-  
-  cloudFactory.prototype.move = function() {
-    this.clouds.forEach(function(cloud) {
-      cloud.move();
-    }); 
-  };
-  
-  
-  cloudFactory.prototype.draw = function() {
-    var max = 100,
-        min = 50;
-  
+
+  }
+
+  CloudFactory.prototype.pushCloud = function(){
+    var max = 300,
+    min = 50;
+
     var random = Math.floor(Math.random() * (max - min + 1) + min);
-  
+
     if (this.drawCounter % random === 0) {
       this.drawCounter = 0;
-  
+
       this.clouds.push(
         new Cloud(this.ctx)
       );
     }
-  };
-  
-  cloudFactory.prototype.cleanClouds = function() {
-    this.clouds = this.clouds.filter(function(cloud) {
-      return cloud.x + cloud.w > 0;
-    });
-  };
+  }
+
+  CloudFactory.prototype.move = function(){
+    this.clouds.forEach(function(c) {
+    c.move();
+    }); 
+  }
+
+  CloudFactory.prototype.checkCollision = function(){
+
+  }
+
+  CloudFactory.prototype.clean = function(){
+
+  }
   
