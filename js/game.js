@@ -5,30 +5,30 @@ function Game(canvasElem){
     this.plane = new Plane(this.ctx);
     this.cloudFactory = new CloudFactory(this.ctx);
     this.clock = new Clock(this.ctx);
+
+    this.intervalId = null;
 }
 
 Game.prototype.start = function(){
     this.intervalId = setInterval(function() {
-        this.clear();
+        this.clean();
+        this.gameOver();
         this.drawAll(); 
         this.moveAll();
-        //check game over
+        this.gameOver();
     }.bind(this), 16/1000);
 };
 
-Game.prototype.clear = function(){
+Game.prototype.clean = function(){
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+    this.cloudFactory.clean();
 }
 Game.prototype.drawAll = function(){
     this.back.draw();
     this.plane.draw();
     this.cloudFactory.draw();
     this.clock.draw();
-    this.checkCollision();
-}
-
-Game.prototype.clear = function() {
-    this.cloudFactory.clean();
+    // this.checkCollision();
 }
 
 Game.prototype.moveAll = function(){
@@ -38,27 +38,22 @@ Game.prototype.moveAll = function(){
     this.cloudFactory.move();
 }
 
-Game.prototype.checkCollision = function(){
-    
+// Game.prototype.checkCollision = function(){
+//     // this.cloudFactory.forEach(function(cloud){
+//         console.log(cloud.x);
+//     });
+// }
+//    if ((this.plane.x + this.plane.w) >= this.cloudFactory.x){
+//        console.log("choque")
+//    }
+
+Game.prototype.gameOver = function(){
+    if(this.clock.countdown <= 0){
+        clearInterval(this.intervalId);
+        if (confirm("DELAYED! Try again?")) {
+          location.reload();
+        }
+    }
 }
 
-// Game.prototype.gameOver = function(){
-//     this.clock.gameOver();
-// }
-// console.log(Game.prototype.gameOver());
-
-// Game.prototype.checkGameOver = function() {
-//     if (this.clock.isCollisions(this.player)) {
-//       this.gameOver();
-//     }
-//   };
-  
-//   Game.prototype.gameOver = function() {
-//     clearInterval(this.intervalId);
-    
-//     if (confirm("GAME OVER! Play again?")) {
-//       location.reload();
-//     }
-//   };
-
-
+ 

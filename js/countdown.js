@@ -8,7 +8,7 @@ function Clock(ctx){
 gradient.addColorStop("0", "black");
 gradient.addColorStop("1.0", "red");
     this.ctx.fillStyle = gradient;
-    this.countdown = 5;
+    this.countdown = 50;
 }
 
 Clock.prototype.draw = function(){
@@ -18,13 +18,6 @@ Clock.prototype.draw = function(){
         this.y
     );
     this.countdown -= 0.1;
-}
-
-Clock.prototype.gameOver = function(){
-    if (this.countdown === 0){
-        return alert("GAME OVER");
     }
-}
-
 
 
