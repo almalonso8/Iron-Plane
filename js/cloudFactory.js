@@ -18,8 +18,8 @@ function CloudFactory(ctx) {
   }
 
   CloudFactory.prototype.pushCloud = function(){
-    var max = 100,
-    min = 10;
+    var max = 500,
+    min = 1;
 
     var random = Math.floor(Math.random() * (max - min + 1) + min);
 

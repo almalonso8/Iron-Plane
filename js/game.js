@@ -10,6 +10,7 @@ function Game(canvasElem){
 }
 
 Game.prototype.start = function(){
+    this.setFinish();
     this.intervalId = setInterval(function() {
         this.clean();
         this.gameOver();
@@ -19,6 +20,12 @@ Game.prototype.start = function(){
         this.gameOver();
     }.bind(this), 16/1000);
 };
+
+Game.prototype.setFinish = function(){
+    console.log(this.plane)// accedo a la clase pero no al avión que tiene la x movible
+    //src
+    console.log(this.back.img.src)
+}
 
 Game.prototype.clean = function(){
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
@@ -35,6 +42,7 @@ Game.prototype.moveAll = function(){
     this.back.move();
     this.plane.gravity();
     this.plane.fly();
+    this.plane.hits();
     this.cloudFactory.move();
 }
 
