@@ -28,6 +28,11 @@ Cloud.prototype.move = function() {
     this.y += this.vy;
   };
 
-Cloud.prototype.collide = function(cloud) {
-    return false;
+Cloud.prototype.collide = function(p) {
+    var c = this;
+
+    var colX = p.x + p.w >= c.x && p.x <= c.x + c.w;
+    var colY = p.y + p.h >= c.y && p.y <= c.y + c.h;
+
+    return colX && colY;
 }

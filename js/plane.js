@@ -1,7 +1,7 @@
 function Plane(ctx){
     this.ctx = ctx;
     this.img = new Image();
-    this.img.src = "img/Plane.png";
+    this.img.src = "img/Planepainted.png";
   
     this.x = 100;
     this.y = 200;
@@ -11,9 +11,7 @@ function Plane(ctx){
     this.vx = 10;
     this.vy = 10;
 
-    this.g = 0.8;
-    
-    
+    this.g = 0.8;    
 }
 
 Plane.prototype.animate = function() {
@@ -45,13 +43,13 @@ Plane.prototype.collide = function(clouds) {
         return cloud.collide(this);
     }.bind(this));
     
-    this.vx -= collitions.length * 1;
+    this.vx -= collitions.length * 0.2;
 }
 
 Plane.prototype.fly = function(){
     var element = document.getElementById("flyId")
     element.onclick = function() {
         this.vy = 10;
-        this.vx = 10;
+        this.vx = 8;
     }.bind(this)
 }

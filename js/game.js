@@ -40,10 +40,7 @@ Game.prototype.moveAll = function(){
 
 Game.prototype.checkCollision = function(){
     this.plane.collide(this.cloudFactory.clouds);
-    
-        if ((this.plane.x + this.plane.w) >= this.cloud){
-            console.log("choque")}
-        }
+};
 
 Game.prototype.gameOver = function(){
     if(this.clock.countdown <= 0){
@@ -53,5 +50,3 @@ Game.prototype.gameOver = function(){
         }
     }
 }
-
- 

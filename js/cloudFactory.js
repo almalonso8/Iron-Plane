@@ -18,8 +18,8 @@ function CloudFactory(ctx) {
   }
 
   CloudFactory.prototype.pushCloud = function(){
-    var max = 300,
-    min = 5;
+    var max = 100,
+    min = 10;
 
     var random = Math.floor(Math.random() * (max - min + 1) + min);
 
@@ -42,6 +42,4 @@ function CloudFactory(ctx) {
     this.clouds = this.clouds.filter(function(c) {
       return c.x + c.w > 0;
     });
-    //console.log(this.clouds.length);
   }
-  

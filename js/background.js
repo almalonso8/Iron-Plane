@@ -2,6 +2,10 @@ function Background(ctx){
     this.ctx = ctx;
     this.img = new Image();
     this.img.src = "img/stars-sky.svg";
+    this.next = setTimeout(function(){
+        this.img = new Image();
+        this.img.src = "img/airport.png"
+    }, 10)
 
     this.x = 0;
     this.y = 0;
@@ -34,3 +38,6 @@ Background.prototype.move = function(){
         this.x = 0;
       }
 }
+
+
+    
