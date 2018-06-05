@@ -10,7 +10,7 @@ function Game(canvasElem){
 }
 
 Game.prototype.start = function(){
-    this.setFinish();
+    
     this.intervalId = setInterval(function() {
         this.clean();
         this.gameOver();
@@ -18,11 +18,12 @@ Game.prototype.start = function(){
         this.moveAll();
         this.checkCollision();
         this.gameOver();
+        this.setFinish();
     }.bind(this), 16/1000);
 };
 
 Game.prototype.setFinish = function(){
-    console.log(this.plane)// accedo a la clase pero no al avión que tiene la x movible
+    console.log(this.plane.x)
     //src
     console.log(this.back.img.src)
 }
