@@ -3,30 +3,14 @@ canvas {
     border: 3px solid white;
   }
 
-  .container {
-    display: flex;
-  }
-  button {
-    margin-left: 50%;
-    margin-top: 5px;
-    width: 80px;
-    height: 80px;
-    text-align: center;
-    background-color: #d7192d ;
-    color: white;
-    border-radius: 50%;
-    box-shadow: 0 8px black;
-    transform: translateY(4px);
-  }
-  
-  button:hover {
-    background-color: white;
-    color: red;
-    font-weight: bold;
+  .instructions {
+    margin-left: 30%;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
-button:active {
-  background-color: #d7192d;
-  color: white;
-  box-shadow: none;
-}
+  i {
+    font-size: 20px;
+    margin-right: 1em;
+    color: #d7192d;
+  }
