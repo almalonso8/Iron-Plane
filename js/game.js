@@ -7,6 +7,7 @@ function Game(canvasElem){
     this.clock = new Clock(this.ctx);
 
     this.intervalId = null;
+    this.keyboardListners();
 }
 
 Game.prototype.start = function(){
@@ -18,14 +19,19 @@ Game.prototype.start = function(){
         this.moveAll();
         this.checkCollision();
         this.gameOver();
-        this.setFinish();
+        this.landing();
+        this.landed();
     }.bind(this), 16/1000);
 };
 
-Game.prototype.setFinish = function(){
-    console.log(this.plane.x)
-    //src
-    console.log(this.back.img.src)
+Game.prototype.landing = function() {
+    if (this.plane.x + this.plane.w >= this.ctx.canvas.width) {
+        this.back.img.src = "img/airport.png";
+        this.plane.x = 0;
+    }
+}
+Game.prototype.landed = function(){
+    
 }
 
 Game.prototype.clean = function(){
@@ -42,7 +48,6 @@ Game.prototype.drawAll = function(){
 Game.prototype.moveAll = function(){
     this.back.move();
     this.plane.gravity();
-    this.plane.fly();
     this.plane.hits();
     this.cloudFactory.move();
 }
@@ -59,3 +64,10 @@ Game.prototype.gameOver = function(){
         }
     }
 }
+
+Game.prototype.keyboardListners = function(){
+    window.addEventListener("keydown", function(e){
+        this.plane.onKeyDown(event.keyCode);
+    }.bind(this));
+        
+};

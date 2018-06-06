@@ -51,12 +51,17 @@ Plane.prototype.collide = function(clouds) {
     this.vx -= collitions.length * 0.2;
 }
 
-Plane.prototype.fly = function(){
-    var element = document.getElementById("flyId")
-    element.onclick = function() {
-        this.vy = 10;
-        this.vx = 8;
-    }.bind(this)
+Plane.prototype.fly = function() {
+    this.vy = 10;
+    this.vx = 8;
 }
+
+var KEY_UP = 32;
+
+Plane.prototype.onKeyDown = function(code) {
+    if (KEY_UP === code) {
+        this.fly();
+    }
+};
 
 
