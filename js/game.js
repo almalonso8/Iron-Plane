@@ -31,7 +31,6 @@ Game.prototype.landing = function() {
     }
 }
 Game.prototype.landed = function(){
-    
 }
 
 Game.prototype.clean = function(){

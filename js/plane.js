@@ -11,7 +11,7 @@ function Plane(ctx){
     this.vx = 10;
     this.vy = 10;
 
-    this.g = 0.8;
+    this.g = 1;
 }
 
 Plane.prototype.animate = function() {
@@ -23,7 +23,7 @@ Plane.prototype.animate = function() {
 }
 
 Plane.prototype.hits = function(){
-    ((this.ctx.canvas.height - this.y)>= this.ctx.canvas.height)? this.vy *= this.g : this.vy;
+    ((this.ctx.canvas.height - this.y)>= this.ctx.canvas.height)? this.y *= -20 : this.vy;
     ((this.ctx.canvas.width - this.x)>= this.ctx.canvas.width)? this.vx *= -2 : this.vx;
 }
 
@@ -53,7 +53,7 @@ Plane.prototype.collide = function(clouds) {
 
 Plane.prototype.fly = function() {
     this.vy = 10;
-    this.vx = 8;
+    this.vx = 10;
 }
 
 var KEY_UP = 32;

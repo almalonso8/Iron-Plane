@@ -6,8 +6,8 @@ function Cloud(ctx){
     this.x = Math.floor((Math.random() * 1200) + 1);
     this.y = Math.floor((Math.random() * 600) + 1);;
 
-    this.w = this.ctx.canvas.width/10;
-    this.h = this.ctx.canvas.height/10;
+    this.w = this.ctx.canvas.width/15;
+    this.h = this.ctx.canvas.height/15;
 
     this.vx = 1;
     this.vy = 0;
