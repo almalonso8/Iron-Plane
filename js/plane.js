@@ -3,15 +3,15 @@ function Plane(ctx){
     this.img = new Image();
     this.img.src = "img/Planepainted.png";
   
-    this.x = 100;
-    this.y = 200;
-    this.w = 250;
+    this.x = 0;
+    this.y = 0;
+    this.w = 200;
     this.h = 100;  
 
-    this.vx = 10;
-    this.vy = 10;
+    this.vx = 0;
+    this.vy = 0;
 
-    this.g = 1;
+    this.g = 0.8;
 }
 
 Plane.prototype.animate = function() {
@@ -52,8 +52,8 @@ Plane.prototype.collide = function(clouds) {
 }
 
 Plane.prototype.fly = function() {
-    this.vy = 10;
-    this.vx = 10;
+    this.vy = 5;
+    this.vx = 5;
 }
 
 var KEY_UP = 32;

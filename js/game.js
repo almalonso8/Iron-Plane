@@ -20,19 +20,30 @@ Game.prototype.start = function(){
         this.checkCollision();
         this.gameOver();
         this.landing();
-        this.landed();
     }.bind(this), 16/1000);
 };
 
 Game.prototype.landing = function() {
     if (this.plane.x + this.plane.w >= this.ctx.canvas.width) {
         this.back.img.src = "img/airport.png";
-        this.plane.x = 0;
+        this.plane.x = 0;  
+        this.landed();//llamamos a la funcion cuando pasamos a esta fase, pero sola la llamamos una vez?
     }
 }
+    // && ((this.plane.y + this.plane.y) === this.x > 0)
 Game.prototype.landed = function(){
+   
 }
 
+    // if(landing().bind() === true){
+    //    alert("hola")
+    // }
+//     if(landing()){
+//         clearInterval(this.intervalId);
+//         if (confirm("FLIGHT ON TIME")) {
+//           location.reload();
+//     }
+// }
 Game.prototype.clean = function(){
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     this.cloudFactory.clean();
