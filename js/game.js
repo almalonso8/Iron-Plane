@@ -28,24 +28,22 @@ Game.prototype.start = function(){
 };
 
 Game.prototype.isLanding = function(){
-    if(this.landing && ((this.plane.y + this.plane.h) >= this.ctx.canvas.height - 250)){
-        this.plane.y = this.ctx.canvas.height - 250;
+    if(this.landing && ((this.plane.y + this.plane.h) >= this.ctx.canvas.height - 280)){
+        this.plane.y = this.ctx.canvas.height - 280;
         this.plane.vx = 1;
+        this.clock.time = false;
     }
 }
 
-Game.prototype.clockStops = function(){
-    if(this.landing){
-        this.clock.clockStops();
-    }
-}
 
 Game.prototype.airport = function() {
     if (this.plane.x + this.plane.w >= this.ctx.canvas.width) {
         this.back.img.src = "img/airport.png";
         this.plane.x = 0;
         this.landing = true;
+        this.cloudFactory.clouds = [];
     }
+
 }
 
 Game.prototype.clean = function(){
@@ -55,7 +53,9 @@ Game.prototype.clean = function(){
 Game.prototype.drawAll = function(){
     this.back.draw();
     this.plane.draw();
-    this.cloudFactory.draw();
+    if (!this.landing){
+        this.cloudFactory.draw();
+    } 
     this.clock.draw();
 }
 
@@ -81,7 +81,7 @@ Game.prototype.gameOver = function(){
 }
 
 Game.prototype.onTime = function(){
-    if(this.landing && (this.plane.x + this.plane.w >= this.ctx.canvas.width)){
+    if(this.landing && (this.plane.x + this.plane.w >= this.ctx.canvas.width - 500)){
         clearInterval(this.intervalId);
         if (confirm("YOU'RE ON TIME, Play again?")) {
           location.reload();
@@ -95,3 +95,4 @@ Game.prototype.keyboardListners = function(){
     }.bind(this));
         
 };
+

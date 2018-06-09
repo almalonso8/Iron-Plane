@@ -12,6 +12,8 @@ function Plane(ctx){
     this.vy = 0;
 
     this.g = 0.8;
+
+    this.clickable = true;
 }
 
 Plane.prototype.animate = function() {
@@ -51,16 +53,24 @@ Plane.prototype.collide = function(clouds) {
 }
 
 Plane.prototype.fly = function() {
-    this.vy = 10;
-    this.vx = 10;
+    this.vy = 15;
+    this.vx = 15;
 }
 
 var KEY_UP = 32;
 
 Plane.prototype.onKeyDown = function(code) {
-    if (KEY_UP === code) {
+    if (KEY_UP === code && this.clickable) {
         this.fly();
+        this.pressTimeOut();
     }
 };
+
+Plane.prototype.pressTimeOut = function(){
+    this.clickable = false;
+    setTimeout(function(){
+        this.clickable = true;
+    }.bind(this), 300)
+}
 
 

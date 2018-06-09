@@ -9,6 +9,7 @@ gradient.addColorStop("0", "black");
 gradient.addColorStop("1.0", "red");
     this.ctx.fillStyle = gradient;
     this.countdown = 240;
+    this.time = true;
 }
 
 Clock.prototype.draw = function(){
@@ -20,8 +21,7 @@ Clock.prototype.draw = function(){
 }
 
 Clock.prototype.clockRuning = function(){
-   return this.countdown -= 0.1;
-}
-Clock.prototype.clockStops = function(){
-    console.log(this.countdown); 
+    if(this.time){
+        this.countdown -= 0.1;
+    }
 }
