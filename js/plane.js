@@ -47,13 +47,12 @@ Plane.prototype.collide = function(clouds) {
     var collitions = clouds.filter(function(cloud) {
         return cloud.collide(this);
     }.bind(this));
-    
     this.vx -= collitions.length * 0.2;
 }
 
 Plane.prototype.fly = function() {
-    this.vy = 5;
-    this.vx = 5;
+    this.vy = 10;
+    this.vx = 10;
 }
 
 var KEY_UP = 32;
