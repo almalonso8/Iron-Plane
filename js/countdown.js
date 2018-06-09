@@ -2,7 +2,7 @@ function Clock(ctx){
     this.ctx = ctx;
     this.ctx.font = "30px Courier New"
     this.text = "Seconds to arrive "
-    this.x = 675;
+    this.x = 1000;
     this.y = 80;
     var gradient = this.ctx.createLinearGradient(0, 0, ctx.canvas.width, 0);
 gradient.addColorStop("0", "black");

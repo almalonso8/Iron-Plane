@@ -3,14 +3,25 @@ canvas {
     border: 3px solid white;
   }
 
+  body {
+    background: rgba(214,0,14,1);
+    background: -moz-linear-gradient(left, rgba(214,0,14,1) 0%, rgba(173,0,12,1) 60%, rgba(133,0,9,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(214,0,14,1)), color-stop(60%, rgba(173,0,12,1)), color-stop(100%, rgba(133,0,9,1)));
+    background: -webkit-linear-gradient(left, rgba(214,0,14,1) 0%, rgba(173,0,12,1) 60%, rgba(133,0,9,1) 100%);
+    background: -o-linear-gradient(left, rgba(214,0,14,1) 0%, rgba(173,0,12,1) 60%, rgba(133,0,9,1) 100%);
+    background: -ms-linear-gradient(left, rgba(214,0,14,1) 0%, rgba(173,0,12,1) 60%, rgba(133,0,9,1) 100%);
+    background: linear-gradient(to right, rgba(214,0,14,1) 0%, rgba(173,0,12,1) 60%, rgba(133,0,9,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6000e', endColorstr='#850009', GradientType=1 ); 
+  }
+
   .instructions {
-    margin-left: 30%;
-    font-size: 20px;
+    margin-left: 35%;
+    font-size: 30px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
   i {
-    font-size: 20px;
+    font-size: 30px;
     margin-right: 1em;
-    color: #d7192d;
+    color: white;
   }
