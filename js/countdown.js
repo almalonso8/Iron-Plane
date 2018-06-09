@@ -17,7 +17,11 @@ Clock.prototype.draw = function(){
         this.x,
         this.y
     );
-    this.countdown -= 0.1;
-    }
+}
 
-
+Clock.prototype.clockRuning = function(){
+   return this.countdown -= 0.1;
+}
+Clock.prototype.clockStops = function(){
+    console.log(this.countdown); 
+}

@@ -21,6 +21,7 @@ Game.prototype.start = function(){
         this.moveAll();
         this.checkCollision();
         this.gameOver();
+        this.onTime();
         this.airport();
         this.isLanding();
     }.bind(this), 16/1000);
@@ -29,8 +30,13 @@ Game.prototype.start = function(){
 Game.prototype.isLanding = function(){
     if(this.landing && ((this.plane.y + this.plane.h) >= this.ctx.canvas.height - 250)){
         this.plane.y = this.ctx.canvas.height - 250;
-        this.plane.vy = 0;
-        this.plane.vx = 2;
+        this.plane.vx = 1;
+    }
+}
+
+Game.prototype.clockStops = function(){
+    if(this.landing){
+        this.clock.clockStops();
     }
 }
 
@@ -58,6 +64,7 @@ Game.prototype.moveAll = function(){
     this.plane.gravity();
     this.plane.hits();
     this.cloudFactory.move();
+    this.clock.clockRuning();
 }
 
 Game.prototype.checkCollision = function(){
@@ -68,6 +75,15 @@ Game.prototype.gameOver = function(){
     if(this.clock.countdown <= 0){
         clearInterval(this.intervalId);
         if (confirm("DELAYED! Try again?")) {
+          location.reload();
+        }
+    }
+}
+
+Game.prototype.onTime = function(){
+    if(this.landing && (this.plane.x + this.plane.w >= this.ctx.canvas.width)){
+        clearInterval(this.intervalId);
+        if (confirm("YOU'RE ON TIME, Play again?")) {
           location.reload();
         }
     }
